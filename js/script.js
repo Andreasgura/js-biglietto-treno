@@ -11,17 +11,18 @@ let kmTravelled = prompt("Quanti kilometri vuoi percorrere?");
 let passengerAge = prompt("Inserisci l'età del passeggero");
 let ticketPrice = kmTravelled*0.21;
 
-console.log("prezzo da arrotondare" + ticketPrice);
+// console.log("prezzo da arrotondare" + ticketPrice);
 
-if (passengerAge < 18) {
+if(isNaN(kmTravelled) || isNaN(passengerAge)) {
+    document.getElementById("myticket").innerHTML = ("inserire solo valori numerici")
+} else if (passengerAge < 18) {
     (ticketPrice = (ticketPrice*(1-0.2)));
-    document.getElementById("myticket").innerHTML = ("il prezzo per i minorenni è " + rounedUpPrice + "€");
+    document.getElementById("myticket").innerHTML = ("il prezzo per i    minorenni è " + ticketPrice + "€");
 } else if (passengerAge > 65) {
     (ticketPrice = (ticketPrice*(1-0.4)));
     console.log("il prezzo per gli over 65 è " + ticketPrice + "€");
     document.getElementById("myticket").innerHTML = ("il prezzo per gli over 65 è " + ticketPrice + "€");
-}
-else {
-    document.getElementById("myticket").innerHTML = ("il prezzo del biglietto è " + ticketPrice + "€");
-    
+ }
+ else {
+     document.getElementById("myticket").innerHTML = ("il prezzo del biglietto è " + ticketPrice + "€");
 }
